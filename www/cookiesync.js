@@ -13,19 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 var exec = require('cordova/exec');
 
 module.exports = {
-    injectCookie: function (url, successCallback, errorCallback) {
-        console.log(url)
-        if ((url.substr(0,4)=="http")&&(url.indexOf("\/\/")>=0)) {
-          url = url.slice(url.indexOf("\/\/")+2);
-        };
-        var sPos = url.indexOf("\/");
-        var domain = url.substr(0,sPos);
-        var path = url.substr(sPos,(url.length-sPos));
-
-        exec(successCallback, errorCallback, 'WKWebViewInjectCookie', 'injectCookie', [domain, path]);
+    injectCookie: function (obj, successCallback, errorCallback) {
+          
+        for (var i = 0; i < obj.length; i++) {
+            exec(successCallback, errorCallback, 'WKWebViewInjectCookie', 'injectCookie', [
+               obj[i].domain,
+               obj[i].path,
+               obj[i].name,
+               obj[i].value,
+               obj[i].expiryDate,
+               obj[i].secure,
+               obj[i].maxAge
+            ]);
+        }
     }
 };
