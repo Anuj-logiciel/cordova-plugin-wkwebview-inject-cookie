@@ -27,7 +27,7 @@
     NSString *path = command.arguments[1];
     NSString *name = command.arguments[2];
     NSString *value = command.arguments[3];
-    NSString *expiryDate = command.arguments[4];
+    // NSString *expiryDate = command.arguments[4];
     NSString *secure = command.arguments[5];
     NSString *maxAge = command.arguments[6];
     
@@ -36,7 +36,7 @@
     [cookieProperties setObject:value forKey:NSHTTPCookieValue];
     [cookieProperties setObject:path forKey:NSHTTPCookiePath];
     [cookieProperties setObject:domain forKey:NSHTTPCookieDomain];
-    [cookieProperties setObject:expiryDate forKey:NSHTTPCookieExpires];
+    // [cookieProperties setObject:expiryDate forKey:NSHTTPCookieExpires];
     [cookieProperties setObject:secure forKey:NSHTTPCookieSecure];
     [cookieProperties setObject:maxAge forKey:NSHTTPCookieMaximumAge];
     
