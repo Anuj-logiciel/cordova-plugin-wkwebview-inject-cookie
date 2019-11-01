@@ -28,8 +28,8 @@
     NSString *name = command.arguments[2];
     NSString *value = command.arguments[3];
     // NSString *expiryDate = command.arguments[4];
-    NSString *secure = command.arguments[5];
-    NSString *maxAge = command.arguments[6];
+    NSString *secure = command.arguments[4];
+    NSString *maxAge = command.arguments[5];
     
     NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
     [cookieProperties setObject:name forKey:NSHTTPCookieName];
