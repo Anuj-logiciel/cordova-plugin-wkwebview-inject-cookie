@@ -21,12 +21,12 @@ module.exports = {
         for (var i = 0; i < obj.length; i++) {
             exec(successCallback, errorCallback, 'WKWebViewInjectCookie', 'injectCookie', [
                obj[i].domain,
-               obj[i].path,
+               obj[i].path ? obj[i].path : '/',
                obj[i].name,
                obj[i].value,
-               obj[i].expiryDate,
-               obj[i].secure,
-               obj[i].maxAge
+            //    obj[i].expiryDate,
+               obj[i].secure ? obj[i].secure : true,
+               obj[i].maxAge ? obj[i].maxAge : 2592000
             ]);
         }
     }
